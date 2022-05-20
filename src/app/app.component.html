@@ -1,0 +1,36 @@
+<header>
+  <h1>GitHup API</h1>
+</header>
+
+<section>
+  <form>
+    <div class="input-group">
+      <label for="nome-de-usuario">Usuário Github</label>
+      <input type="text" name="nome-de-usuario" id="nome-de-usuario" required [(ngModel)]="nomeDeUsuario">
+    </div>
+    <div class="input-group">
+      <button type="button" (click)="getRepositorios()">Buscar</button>
+    </div>
+  </form>
+</section>
+
+<section>
+  <table>
+    <thead>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Nome Completo</th>
+      <th>URL</th>
+      <th>Descrição</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let repositorio of repositorios;">
+        <td>{{ repositorio.id }}</td>
+        <td>{{ repositorio.name }}</td>
+        <td>{{ repositorio.full_name }}</td>
+        <td>{{ repositorio.html_url }}</td>
+        <td>{{ repositorio.description }}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
